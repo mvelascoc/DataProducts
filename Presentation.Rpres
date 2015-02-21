@@ -23,7 +23,6 @@ Ranges and scales where taken form http://en.wikipedia.org/wiki/Body_mass_index 
 User can slide values for mass and height and recalculate the values with a submit button. 
 There is a conditional pane that shows a different graph in case the mass value is less or more than 60kgs
 
-# Where it is running
 App is running in https://mvelascoc.shinyapps.io/DataProducts/
 
 
