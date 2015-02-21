@@ -1,0 +1,62 @@
+First Presentation Ever Made in RStudio
+========================================================
+author: Maria Velasco
+date: 21 Feb 2015
+
+Just to learn how to use this new tool and integrate its results to RPubs
+
+Scope
+========================================================
+This Presentation is part of the required project in the Developing Data Products (by Brian Caffo, PhD, Jeff Leek, PhD, Roger D. Peng, PhD) Coursera Class Feb 2015
+
+Contents
+- Presentation justification
+- What the Shiny App does
+- Calculating the BIM
+- Showing the graph
+
+My Shiny App: 
+========================================================
+Application created calculates the Body Mass Index and shows the classification, to see if the data included represents a normaly wheight person or if there is any overwheight or underwhweigth
+Ranges and scales where taken form http://en.wikipedia.org/wiki/Body_mass_index on Feb 21 2015 10:00
+
+User can slide values for mass and height and recalculate the values with a submit button. 
+There is a conditional pane that shows a different graph in case the mass value is less or more than 60kgs
+
+# Where it is running
+App is running in https://mvelascoc.shinyapps.io/DataProducts/
+
+
+Slide With Code
+========================================================
+
+```{r}
+bmindex <- function(mass, heigth) mass / heigth^2
+#used to have this BMI
+bmindex(92,1.56)
+#now I have this 
+bmindex(58,1.56)
+
+```
+So I am getting thiner and proud. That is why I made this app!
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+    alt <- .01*(1:100) + 1
+    pes1 <-  alt*alt*18.5
+    pes2 <-  alt*alt*25
+    pes3 <-  alt*alt*30
+    pes4 <-  alt*alt*35
+    pes5 <-  alt*alt*40
+    plot(pes1, alt, type='l', main = "Normal to Overwheight Range", 
+                    xlab = "Weight", ylab="Height", xlim=c(50, 120))
+    lines(pes2, alt)
+    lines(pes3, alt, col="blue")
+    lines(pes4, alt, col="blue")
+    lines(pes5, alt, col="blue")
+    text(58,1.56, labels="now")
+    text(92,1.56, labels="before")
+    
+```
